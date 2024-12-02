@@ -23,7 +23,7 @@ cf push app-pool2 -p /path/to/app
 
 cf target -o org1 -s pool3
 cf push app-pool3 -p /path/to/app
-
+```
 
 ## 3. Set Up Load Balancing
 Distribute traffic across the pools using an **external load balancer** (e.g., Nginx, AWS ELB, Cloudflare).
@@ -46,7 +46,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }
-
+```
 
 ## 4. Database Configuration
 - Use a **shared database** to ensure consistent data across pools.
@@ -80,7 +80,7 @@ Supported databases: PostgreSQL, MySQL, MongoDB.
 cf push app-pool1 -m 512M
 cf push app-pool2 -m 512M
 cf push app-pool3 -m 512M
-
+```
 
 ## 7. DNS Configuration
 - Use DNS to point to your load balancer:
@@ -96,7 +96,7 @@ cf push app-pool3 -m 512M
 ```bash
 cf scale app-pool1 -i 2  # Add another instance to Pool 1
 cf scale app-pool2 -i 3  # Add two more instances to Pool 2
-
+```
 
 ## 9. Testing the Setup
 - Test individual pools to verify functionality.
